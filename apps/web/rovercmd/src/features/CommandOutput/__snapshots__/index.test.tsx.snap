@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CommandOutput 1`] = `
+<div
+  class="CommandOutput"
+>
+  <fieldset>
+    <legend>
+      Output:
+    </legend>
+    <textarea
+      readonly=""
+      rows="5"
+    />
+  </fieldset>
+</div>
+`;

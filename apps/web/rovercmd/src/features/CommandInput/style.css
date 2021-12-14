@@ -1,0 +1,25 @@
+.CommandInput fieldset {
+  border: none;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.CommandInput label {
+  padding: 0px 10px;
+}
+
+.CommandInput textarea {
+  min-width: 250px;
+}
+
+.CommandInput legend {
+  padding: 10px 0px;
+}
+
+.CommandInput button {
+  padding: 5px 5px;
+  margin: 10px 0px;
+}

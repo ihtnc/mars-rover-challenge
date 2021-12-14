@@ -1,2 +1,5 @@
 [Bb]in/
 [Oo]bj/
+node_modules/
+apps/web/rovercmd/build/
+apps/web/rovercmd.api/wwwroot/

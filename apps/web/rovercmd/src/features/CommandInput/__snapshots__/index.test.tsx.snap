@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CommandInput 1`] = `
+<div
+  class="CommandInput"
+>
+  <fieldset>
+    <legend>
+      Enter command(s) to send to the rover(s):
+    </legend>
+    <textarea
+      rows="10"
+    />
+  </fieldset>
+  <button>
+    Send!
+  </button>
+</div>
+`;

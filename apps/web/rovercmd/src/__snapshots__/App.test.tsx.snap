@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App 1`] = `
+<div
+  class="App"
+>
+  <header
+    class="App-header"
+  >
+    Mars Rover Challenge Web App
+  </header>
+  <section
+    class="App-sub-header"
+  >
+    <p>
+      A web-based wrapper for the 
+      <code>
+        MarsRoverChallenge.Send
+      </code>
+       library.
+    </p>
+    <p>
+      This library is an implementation of the 
+      <a
+        href="https://code.google.com/archive/p/marsrovertechchallenge/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Mars Rover
+      </a>
+       challenge.
+    </p>
+  </section>
+  <section
+    class="App-section"
+  >
+    <div
+      class="CommandInput"
+    >
+      <fieldset>
+        <legend>
+          Enter command(s) to send to the rover(s):
+        </legend>
+        <textarea
+          rows="10"
+        />
+      </fieldset>
+      <button>
+        Send!
+      </button>
+    </div>
+  </section>
+  <section
+    class="App-section"
+  >
+    <div
+      class="CommandOutput"
+    >
+      <fieldset>
+        <legend>
+          Output:
+        </legend>
+        <textarea
+          readonly=""
+          rows="5"
+        />
+      </fieldset>
+    </div>
+  </section>
+</div>
+`;

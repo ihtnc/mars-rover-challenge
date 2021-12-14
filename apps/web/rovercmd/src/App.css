@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+.App-header, .App-sub-header, .App-section, .App-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  padding: 20px 0px;
+}
+
+.App-header {
+  font-size: calc(10px + 2vmin);
+  padding: 20px 0px;
+}
+
+.App-sub-header {
+  font-size: calc(10px + 0.5vmin);
+  padding: 10px 0px;
+}
+
+.App-sub-header p {
+  margin: 0px 0px 10px 0px;
+}
+
+.App-error {
+  font-size: calc(10px + 1vmin);
+  padding: 5px 5px;
+  color: #ed143d;
+}
+
+.App-section {
+  font-size: calc(10px + 1vmin);
+  padding: 10px 0px;
+}
+
+.App-section p {
+  margin: 10px;
+}
+
+.App a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.App a:hover {
+  text-decoration: underline;
+}

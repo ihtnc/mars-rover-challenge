@@ -1,0 +1,20 @@
+.CommandOutput fieldset {
+  border: none;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.CommandOutput label {
+  padding: 0px 10px;
+}
+
+.CommandOutput textarea {
+  min-width: 250px;
+}
+
+.CommandOutput legend {
+  padding: 10px 0px;
+}
