@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders HubConnector with active connection correctly 1`] = `
+<div
+  class="HubConnector"
+  title="id: connectionId"
+>
+  Connected
+  <a
+    hidden=""
+    href="/"
+    target="_self"
+  >
+    Reconnect?
+  </a>
+</div>
+`;
+
+exports[`renders HubConnector with connection error 1`] = `
+<div
+  class="HubConnector"
+>
+  Disconnected
+  <a
+    href="/"
+    target="_self"
+  >
+    Reconnect?
+  </a>
+</div>
+`;
+
+exports[`renders HubConnector with reconnecting state 1`] = `
+<div
+  class="HubConnector"
+>
+  Reconnecting
+  <a
+    hidden=""
+    href="/"
+    target="_self"
+  >
+    Reconnect?
+  </a>
+</div>
+`;
+
+exports[`renders initial HubConnector correctly 1`] = `
+<div
+  class="HubConnector"
+>
+  Disconnected
+  <a
+    href="/"
+    target="_self"
+  >
+    Reconnect?
+  </a>
+</div>
+`;

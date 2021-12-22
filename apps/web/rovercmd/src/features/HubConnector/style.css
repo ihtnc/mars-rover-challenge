@@ -1,0 +1,14 @@
+.HubConnector {
+  font-size: calc(10px + 0.5vmin);
+  color: #a9a9a9;
+}
+
+.HubConnector a {
+  color: #1e90ff;
+  text-decoration: none;
+  padding: 0px 5px;
+}
+
+.HubConnector a:hover {
+  text-decoration: underline;
+}

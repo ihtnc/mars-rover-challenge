@@ -1,8 +1,10 @@
 import './App.css';
 import CommandInput from 'features/CommandInput/';
 import CommandOutput from 'features/CommandOutput/';
+import HubConnector from 'features/HubConnector';
 import { useAppSelector } from 'core/hooks';
-import { getStatus, Status } from 'core/roverSlice';
+import { getStatus } from 'core/roverSlice';
+import { Status } from 'core/statusEnum';
 
 const hasError = (status: Status) => status === Status.Error;
 
@@ -34,6 +36,9 @@ function App() {
       </section>
       <section className="App-section">
         <CommandOutput />
+      </section>
+      <section className="App-section">
+        <HubConnector />
       </section>
     </div>
   );

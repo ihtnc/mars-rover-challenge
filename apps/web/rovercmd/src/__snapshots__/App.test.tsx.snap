@@ -67,5 +67,14 @@ exports[`renders App 1`] = `
       </fieldset>
     </div>
   </section>
+  <section
+    class="App-section"
+  >
+    <div
+      class="HubConnector"
+    >
+      Mock Hub Connector
+    </div>
+  </section>
 </div>
 `;

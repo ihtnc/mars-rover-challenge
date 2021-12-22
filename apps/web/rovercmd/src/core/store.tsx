@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import roverReducer from './roverSlice';
+import hubConnectionReducer from './hubConnectionSlice';
 
 const store = configureStore({
   reducer: {
-    rover: roverReducer
+    rover: roverReducer,
+    hubConnection: hubConnectionReducer
   }
 });
 
