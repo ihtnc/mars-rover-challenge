@@ -1,12 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { AppDispatch, RootState } from './store';
 import { postInput } from 'services/sendService';
-
-export enum Status {
-  Ready = 0,
-  Busy = 1,
-  Error = -1
-}
+import { Status } from './statusEnum';
 
 interface RoverState {
     status: Status,

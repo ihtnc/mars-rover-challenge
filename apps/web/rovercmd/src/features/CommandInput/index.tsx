@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'core/hooks';
-import { sendInput, Status, getStatus } from 'core/roverSlice';
+import { sendInput, getStatus } from 'core/roverSlice';
+import { Status } from 'core/statusEnum';
 import './style.css';
 
 const isBusy = (status: Status) => status === Status.Busy;
