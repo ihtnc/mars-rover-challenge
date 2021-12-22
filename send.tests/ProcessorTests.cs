@@ -155,7 +155,7 @@ public class ProcessorTests
         // ASSERT
         foreach(var command in input.RoverCommands)
         {
-            _rover.Received(commandCount).OnCommandExecution += Arg.Any<CommandExecutionHandler>();
+            _rover.Received(commandCount).OnCommandExecute += Arg.Any<EventHandler<CommandExecuteEventArgs>>();
         }
     }
 
@@ -171,7 +171,7 @@ public class ProcessorTests
 
         var previous = new Coordinate(123, 456);
         var current = new Coordinate(135, 246);
-        var args = new CommandExecutionEventArgs
+        var args = new CommandExecuteEventArgs
         {
             Success = eventSuccess,
             ExecutedCommand = eventCommand,
@@ -182,7 +182,7 @@ public class ProcessorTests
         // ACT
         var input = CreateInput();
         _processor.Run(input);
-        _rover.OnCommandExecution += Raise.Event<CommandExecutionHandler>(_rover, args);
+        _rover.OnCommandExecute += Raise.Event<EventHandler<CommandExecuteEventArgs>>(_rover, args);
 
         // ASSERT
         _landscape.Received(expectedCall).MoveMarker(previous, current);
@@ -197,7 +197,7 @@ public class ProcessorTests
         var previous = new Location(135, 246, Direction.W);
         var current = new Location(123, 456, Direction.E);
 
-        var args = new CommandExecutionEventArgs
+        var args = new CommandExecuteEventArgs
         {
             Success = true,
             ExecutedCommand = Command.M,
@@ -208,7 +208,7 @@ public class ProcessorTests
         // ACT
         var input = CreateInput();
         _processor.Run(input);
-        var action = () => _rover.OnCommandExecution += Raise.Event<CommandExecutionHandler>(_rover, args);
+        var action = () => _rover.OnCommandExecute += Raise.Event<EventHandler<CommandExecuteEventArgs>>(_rover, args);
 
         // ASSERT
         var message = $"Unexpected error moving rover location from ({previous}) to ({current}).";

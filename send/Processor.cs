@@ -6,6 +6,9 @@ namespace MarsRoverChallenge.Send;
 public interface IProcessor
 {
     Output Run(Input input);
+
+    event EventHandler<ProcessorStartEventArgs>? OnProcessorStart;
+    event EventHandler<ProcessorEndEventArgs>? OnProcessorEnd;
 }
 
 public class Processor : IProcessor
@@ -22,6 +25,8 @@ public class Processor : IProcessor
 
     public Output Run(Input input)
     {
+        OnProcessorStart?.Invoke(this, new ProcessorStartEventArgs(input));
+
         var landscape = _landscapeProvider.CreateLandscape(input.LandscapeDetails.BottomLeftCorner, input.LandscapeDetails.UpperRightCorner);
         var roverOutputs = new List<RoverCommandOutput>();
 
@@ -34,7 +39,7 @@ public class Processor : IProcessor
 
             var rover = _roverProvider.CreateRover();
             rover.Initialise(cmd.StartingLocation, current => landscape.IsOccupied(current.Position) == false);
-            rover.OnCommandExecution += (sender, args) =>
+            rover.OnCommandExecute += (sender, args) =>
             {
                 if (args.Success == false || args.ExecutedCommand != Command.M) { return; }
 
@@ -54,9 +59,16 @@ public class Processor : IProcessor
             roverOutputs.Add(roverOutput);
         }
 
-        return new Output
+        var output = new Output
         {
             RoverOutputs = roverOutputs
         };
+
+        OnProcessorEnd?.Invoke(this, new ProcessorEndEventArgs(output));
+
+        return output;
     }
+
+    public event EventHandler<ProcessorStartEventArgs>? OnProcessorStart;
+    public event EventHandler<ProcessorEndEventArgs>? OnProcessorEnd;
 }

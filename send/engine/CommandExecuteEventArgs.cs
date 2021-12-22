@@ -2,7 +2,7 @@ using MarsRoverChallenge.Send.Models;
 
 namespace MarsRoverChallenge.Send.Engine;
 
-public class CommandExecutionEventArgs : EventArgs
+public class CommandExecuteEventArgs : EventArgs
 {
     public bool Success { get; set; }
     public Command ExecutedCommand { get; set; }

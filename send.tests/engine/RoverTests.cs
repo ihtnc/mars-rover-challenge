@@ -58,7 +58,7 @@ public class RoverTests
     {
         // ARRANGE
         var eventCount = 0;
-        _rover.OnCommandExecution += (sender, args) => { eventCount++; };
+        _rover.OnCommandExecute += (sender, args) => { eventCount++; };
 
         var turnCount = 3;
 
@@ -80,9 +80,9 @@ public class RoverTests
         var newLocation = initialLocation;
         newLocation.Orientation = initialLocation.Orientation.Turn(true);
 
-        var actualArgs = null as CommandExecutionEventArgs;
+        var actualArgs = null as CommandExecuteEventArgs;
 
-        _rover.OnCommandExecution += (sender, args) => { actualArgs = args; };
+        _rover.OnCommandExecute += (sender, args) => { actualArgs = args; };
 
         // ACT
         _rover.TurnLeft();
@@ -114,7 +114,7 @@ public class RoverTests
     {
         // ARRANGE
         var eventCount = 0;
-        _rover.OnCommandExecution += (sender, args) => { eventCount++; };
+        _rover.OnCommandExecute += (sender, args) => { eventCount++; };
 
         var turnCount = 3;
 
@@ -136,9 +136,9 @@ public class RoverTests
         var newLocation = initialLocation;
         newLocation.Orientation = initialLocation.Orientation.Turn();
 
-        var actualArgs = null as CommandExecutionEventArgs;
+        var actualArgs = null as CommandExecuteEventArgs;
 
-        _rover.OnCommandExecution += (sender, args) => { actualArgs = args; };
+        _rover.OnCommandExecute += (sender, args) => { actualArgs = args; };
 
         // ACT
         _rover.TurnRight();
@@ -184,7 +184,7 @@ public class RoverTests
     {
         // ARRANGE
         var eventCount = 0;
-        _rover.OnCommandExecution += (sender, args) => { eventCount++; };
+        _rover.OnCommandExecute += (sender, args) => { eventCount++; };
 
         var forwardCount = 3;
 
@@ -205,9 +205,9 @@ public class RoverTests
         var initialLocation = _rover.CurrentLocation;
         var newLocation = initialLocation.Forward();
 
-        var actualArgs = null as CommandExecutionEventArgs;
+        var actualArgs = null as CommandExecuteEventArgs;
 
-        _rover.OnCommandExecution += (sender, args) => { actualArgs = args; };
+        _rover.OnCommandExecute += (sender, args) => { actualArgs = args; };
 
         // ACT
         _rover.MoveForward();
@@ -273,10 +273,10 @@ public class RoverTests
         // ARRANGE
         var initialLocation = _rover.CurrentLocation;
 
-        var actualArgs = null as CommandExecutionEventArgs;
+        var actualArgs = null as CommandExecuteEventArgs;
 
         _rover.Initialise(initialLocation, location => false);
-        _rover.OnCommandExecution += (sender, args) => { actualArgs = args; };
+        _rover.OnCommandExecute += (sender, args) => { actualArgs = args; };
 
         // ACT
         _rover.MoveForward();

@@ -15,7 +15,7 @@ public interface IRover
     void MoveForward();
     void ExecuteCommands(params Command[] commands);
 
-    event CommandExecutionHandler OnCommandExecution;
+    event EventHandler<CommandExecuteEventArgs>? OnCommandExecute;
 }
 
 public class Rover : IRover
@@ -32,7 +32,6 @@ public class Rover : IRover
 
         Initialise(initialLocation, _probeFunction);
 
-        OnCommandExecution += (sender, args) => {};
         Id = StringHelper.GenerateShortId();
     }
 
@@ -52,7 +51,7 @@ public class Rover : IRover
         var previousState = CurrentLocation;
         _currentDirection = _currentDirection.Turn(true);
 
-        OnCommandExecution?.Invoke(this, new CommandExecutionEventArgs
+        OnCommandExecute?.Invoke(this, new CommandExecuteEventArgs
         {
             Success = true,
             ExecutedCommand = Command.L,
@@ -66,7 +65,7 @@ public class Rover : IRover
         var previousState = CurrentLocation;
         _currentDirection = _currentDirection.Turn();
 
-        OnCommandExecution?.Invoke(this, new CommandExecutionEventArgs
+        OnCommandExecute?.Invoke(this, new CommandExecuteEventArgs
         {
             Success = true,
             ExecutedCommand = Command.R,
@@ -89,7 +88,7 @@ public class Rover : IRover
             success = true;
         }
 
-        OnCommandExecution?.Invoke(this, new CommandExecutionEventArgs
+        OnCommandExecute?.Invoke(this, new CommandExecuteEventArgs
         {
             Success = success,
             ExecutedCommand = Command.M,
@@ -121,5 +120,5 @@ public class Rover : IRover
         }
     }
 
-    public event CommandExecutionHandler OnCommandExecution;
+    public event EventHandler<CommandExecuteEventArgs>? OnCommandExecute;
 }
